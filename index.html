@@ -3,16 +3,36 @@
 
 <script src="https://integracion-actividad-3.herokuapp.com/trucks/socket.io.js"></script>
 <script>
-var socket = io("https://integracion-actividad-3.herokuapp.com/", { path: "/trucks" });
+
+
+window.onload = function() {
+                const element = document.getElementById("id01");
+                var socket = io("https://integracion-actividad-3.herokuapp.com/", { path: "/trucks" });
 socket.on('POSITION', function(msg){
- console.log('CAMION ' + msg.code + ' posicion: ' + msg.position[0] + ',' +
-msg.position[1]);
+    var tag = document.createElement("p");
+   var text = document.createTextNode(('CAMION ' + msg.code + ' posicion: ' + msg.position[0] + ',' +
+msg.position[1]));
+   tag.appendChild(text);
+   var element = document.getElementById("new");
+   element.appendChild(tag);
+   
  });
+            }
+
+
+
+
+
+
 </script>
+
+
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<div id="new">
+<p id="p1">Tutorix</p>
+<p id="p2">Tutorialspoint</p>
+</div>
 
 </body>
 </html>
